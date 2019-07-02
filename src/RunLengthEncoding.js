@@ -23,13 +23,23 @@ class RunLengthEncoding
 
     from(input)
     {
-        if(input == "2A1B3C1D4E") {
-            return "AABCCCDEEEE";
-        } else if(input == "3A3B") {
-            return "AAABBB";
-        } else if(input == "3A3B3C") {
-            return "AAABBBCCC";
+        let previousChar = "";
+        let number = "";
+        let output = "";
+        const numbers = '0123456789';
+        for (let char of input) {
+            let currentCharIsInt = numbers.includes(char);
+            let previousCharIsInt = numbers.includes(previousChar);
+            if(currentCharIsInt && previousCharIsInt) {
+                number += char;
+            } else if(currentCharIsInt) {
+                number = char;
+            } else {
+                output += ''.padStart(number, char);
+            }
+            previousChar = char;
         }
+        return output;
     }
 }
 

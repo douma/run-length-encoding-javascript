@@ -14,10 +14,11 @@ test('test to happy path', function (t) {
 });
 
 test('test from happy path', function (t) {
-    t.plan(3);
+    t.plan(4);
 
     const runLengthEncoding = new RunLengthEncoding();
     t.equal(runLengthEncoding.from("2A1B3C1D4E"), "AABCCCDEEEE");
     t.equal(runLengthEncoding.from("3A3B"), "AAABBB");
     t.equal(runLengthEncoding.from("3A3B3C"), "AAABBBCCC");
+    t.equal(runLengthEncoding.from("12W1B12W3B24W1B14W"),'WWWWWWWWWWWWBWWWWWWWWWWWWBBBWWWWWWWWWWWWWWWWWWWWWWWWBWWWWWWWWWWWWWW');
 });
