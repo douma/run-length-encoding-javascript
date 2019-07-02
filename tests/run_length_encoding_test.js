@@ -11,5 +11,4 @@ test('timing test', function (t) {
     t.equal(runLengthEncoding.to("AAABBBCCCD"),"3A3B3C1D");
     t.equal('12W1B12W3B24W1B14W',
         runLengthEncoding.to("WWWWWWWWWWWWBWWWWWWWWWWWWBBBWWWWWWWWWWWWWWWWWWWWWWWWBWWWWWWWWWWWWWW"));
-
 });
