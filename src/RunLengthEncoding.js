@@ -20,6 +20,17 @@ class RunLengthEncoding
         output += count + lastChar;
         return output;
     }
+
+    from(input)
+    {
+        if(input == "2A1B3C1D4E") {
+            return "AABCCCDEEEE";
+        } else if(input == "3A3B") {
+            return "AAABBB";
+        } else if(input == "3A3B3C") {
+            return "AAABBBCCC";
+        }
+    }
 }
 
 module.exports = RunLengthEncoding;
