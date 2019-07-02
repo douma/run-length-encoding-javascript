@@ -2,15 +2,23 @@ class RunLengthEncoding
 {
     to(input)
     {
-        if(input == "AABCCCDEEEE") {
-            return "2AB3CD4E";
-        } else if (input == "AAABBB") {
-            return "3A3B";
-        } else if(input == "AAABBBCCC") {
-            return "3A3B3C";
-        } else if(input == "AAABBBCCCD") {
-            return "3A3B3C1D";
+        let output = "";
+        let lastChar = "";
+        let count = 0;
+        for (let char of input) {
+            if (lastChar == char) {
+                //...nothing
+            } else {
+                if (lastChar !== "") {
+                    output += count + lastChar;
+                    count = 0;
+                }
+            }
+            count++;
+            lastChar = char;
         }
+        output += count + lastChar;
+        return output;
     }
 }
 
